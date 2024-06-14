@@ -1,0 +1,25 @@
+<div>
+  <div class="login-container">
+   <img src="https://i.ibb.co/T0CLFWh/freelancer-working-laptop-her-house-1150-35048.jpg" alt="login" class="login-image"/>
+    <form class="form-card" (ngSubmit)="onSubmit()">  
+    <h1 class = 'form-heading'>Login </h1>  
+      <div class="input-container">
+        <input 
+              class = "form-input-field" 
+              type="text"
+              [(ngModel)]="name"
+              [ngModelOptions]="{standalone: true}"
+              placeholder="Username" 
+          >
+      </div>
+      <div class="input-container">
+        <input class = "form-input-field" type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" placeholder="Password" />
+      </div>
+      <p class = "error" *ngIf="error">*{{error}}</p>
+      <button class="submit-button" type="submit">Login</button>
+    </form>
+  </div>
+</div>
+
+
+

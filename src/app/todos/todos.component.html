@@ -1,0 +1,36 @@
+<div class="todo-container">
+  <div class="add-edit-container">
+
+    <h1 class = "app-heading">To-Do-List</h1>
+    <div *ngIf="!selectedTodo.id">
+      <input class = "input-field" [(ngModel)]="newTodo.taskName" placeholder="Enter the Task Name">
+      <input class = "input-field" [(ngModel)]="newTodo.taskStatus" placeholder="Enter the Task Status">
+      <button class = "add-button" (click)="addTodo()">Add</button>
+    </div>
+    <div *ngIf="selectedTodo.id">
+      <input class = "input-field" [(ngModel)]="selectedTodo.taskName" placeholder="Task Name">
+      <input class = "input-field" [(ngModel)]="selectedTodo.taskStatus" placeholder="Task Status">
+      <button class = "update-button" (click)="updateTodo()">Update</button>
+    </div>
+  </div>
+  <div class="">
+  <ul>
+    <li class="row-header">
+       <div class="cell">Task Name</div>
+        <div class="cell">Task Status</div>
+        <div class="cell">Actions</div>
+    </li>
+    <li class="row-data" *ngFor="let todo of todos">
+
+        <div class="cell">{{todo.taskName}}</div>
+        <div class="cell">{{todo.taskStatus}}</div>
+
+      <div class="control cell">
+        <button class = "edit-button"(click)="editTodo(todo.id)">Edit</button>
+        <button class = "delete-button" (click)="deleteTodo(todo.id)">Delete</button>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
